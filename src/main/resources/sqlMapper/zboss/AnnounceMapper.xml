@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinagpay.boss.dao.zboss.AnnounceMapper">
+  <resultMap id="announce" type="com.chinagpay.boss.model.Announce">
+     	<result column="ID" jdbcType="VARCHAR" property="id" />
+		<result column="VISIBLE_RANGE" jdbcType="VARCHAR" property="visibleRange" />
+		<result column="TITLE" jdbcType="VARCHAR" property="title" />
+		<result column="UPLOAD_PATH" jdbcType="VARCHAR" property="upLoadPath" />
+		<result column="CONTENT" jdbcType="VARCHAR" property="content" />
+		<result column="EXPIRY_DATE" jdbcType="INTEGER" property="expiryDate" />
+		<result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="RELEASE_PERSON" jdbcType="VARCHAR" property="releasePerson" />
+		<result column="STATUS" jdbcType="VARCHAR" property="status" />
+		<result column="FILE_NAME" jdbcType="VARCHAR" property="fileName" />
+		<result column="CLOSING_TIME" jdbcType="TIMESTAMP" property="closingTime" />
+		<result column="TERM_STATUS" jdbcType="VARCHAR" property="termStatus" />
+    
+  </resultMap>
+  
+  <select id="selectAnnounce" parameterType="com.chinagpay.boss.model.Announce" resultMap="announce">
+		select ID,VISIBLE_RANGE,TITLE,UPLOAD_PATH,CONTENT,EXPIRY_DATE,CREATE_TIME,UPDATE_TIME,RELEASE_PERSON,STATUS,FILE_NAME,CLOSING_TIME,TERM_STATUS
+ 		from  CONSOLE_ANNOUNCE where 1=1
+		<if test="title !=null and title !=''" >
+			and TITLE like '%${title}%'
+		</if>
+		
+		<if test="termStatus==1" >
+			and <![CDATA[
+               sysdate <= CLOSING_TIME
+           ]]>
+		</if>
+		
+		<if test="termStatus==2" >
+			 and <![CDATA[
+               sysdate > CLOSING_TIME
+           ]]>
+		</if>
+		      
+		
+ 		order by CREATE_TIME desc
+	</select>
+	
+	
+	
+	<delete id="deleteByPrimaryKey" parameterType="com.chinagpay.boss.model.Announce" >
+     delete from CONSOLE_ANNOUNCE
+     where ID = #{id}
+    </delete>
+    
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+	resultMap="announce">
+	select
+	ID,VISIBLE_RANGE,TITLE,UPLOAD_PATH,CONTENT,EXPIRY_DATE,CREATE_TIME,UPDATE_TIME,RELEASE_PERSON,STATUS,FILE_NAME,CLOSING_TIME
+	from CONSOLE_ANNOUNCE
+	where ID = #{id}
+    </select>
+  
+     <update id="updateStatusByPrimaryKey" parameterType="com.chinagpay.boss.model.Announce">
+		update CONSOLE_ANNOUNCE set STATUS = #{status},UPDATE_TIME = #{updateTime} where ID= #{id}
+	</update>
+	
+	<update id="updateByPrimaryKey" parameterType="com.chinagpay.boss.model.Announce">
+		update CONSOLE_ANNOUNCE set 
+		ID = #{id}
+		<if test="content !=null and content!=''">
+			,CONTENT = #{content}
+		</if>
+		<if test="expiryDate !=null and expiryDate!=''">
+			,EXPIRY_DATE= #{expiryDate}
+		</if>
+		<if test="upLoadPath !=null and upLoadPath!=''">
+			,UPLOAD_PATH= #{upLoadPath}
+		</if>
+		<if test="closingTime !=null and closingTime!=''">
+			,CLOSING_TIME= #{closingTime}
+		</if>
+		<if test="updateTime !=null and updateTime!=''">
+			,UPDATE_TIME= sysdate
+		</if>
+		<if test="fileName !=null and fileName!=''">
+			,FILE_NAME= #{fileName}
+		</if>
+		where ID = #{id}
+	</update>
+	
+	<insert id="insertAnnounce" parameterType="com.chinagpay.boss.model.Announce"  >
+		INSERT INTO CONSOLE_ANNOUNCE(ID,VISIBLE_RANGE,TITLE,UPLOAD_PATH,CONTENT,EXPIRY_DATE,CREATE_TIME,RELEASE_PERSON,STATUS,FILE_NAME,CLOSING_TIME) 
+		values (consoleAnnounce_seq.Nextval,#{visibleRange,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR},#{upLoadPath,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},#{expiryDate,jdbcType=INTEGER},#{createTime,jdbcType=TIMESTAMP},#{releasePerson,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{fileName,jdbcType=VARCHAR},#{closingTime,jdbcType=TIMESTAMP})
+	</insert>
+  
+  
+</mapper>

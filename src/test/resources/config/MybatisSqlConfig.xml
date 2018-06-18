@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <!--<typeAliases>-->
+        <!--<typeAlias type="com.chinagpay.boss.model.CbAccount" alias="cbAccountObj"/>-->
+        <!--<typeAlias type="com.chinagpay.boss.model.MerchantEntryRecord" alias="merchantEntryRecord"/>-->
+        <!--<typeAlias type="com.chinagpay.boss.model.BankData" alias="bankData"/>-->
+        <!--<typeAlias type="com.chinagpay.boss.model.BusinessReport" alias="businessReport"/>-->
+        <!--<typeAlias type="com.chinagpay.boss.model.CbMerchant" alias="CbMerchant"/>-->
+    <!--</typeAliases>-->
+    
+    
+<!--    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.EnumTypeHandler" javaType="com.chinagpay.boss.common.bean.AccountStatusEnum"/>
+        <typeHandler handler="org.apache.ibatis.type.EnumTypeHandler" javaType="com.chinagpay.boss.common.bean.CurrencyEnum"/>
+    </typeHandlers>-->
+</configuration>

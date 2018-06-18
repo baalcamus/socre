@@ -1,0 +1,1 @@
+(function($) {$.extend({showcover:function(){$("#__lk_cover__").css("display","block");},hidecover:function(){$("#__lk_cover__").css("display","none");}});$(function(){$("body").prepend('<div id="__lk_cover__" style="display: none;"></div>');});})(jQuery);

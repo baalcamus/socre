@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinagpay.boss.dao.zboss.ConsoleRuleMapper">
+  <resultMap id="consoleRule" type="com.chinagpay.boss.model.ConsoleRule">
+     	<result column="ID" property="id" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="CODE" property="code" />
+		<result column="MARK" property="mark" />
+		<result column="RULE_LEVEL" property="ruleLevel" />
+		<result column="RULE_LEVEL_PARENT" property="ruleLevelParent" />
+		<result column="TYPE" property="type" />
+    
+  </resultMap>
+  
+  <select id="selectConsoleRule" parameterType="com.chinagpay.boss.model.ConsoleRule" resultMap="consoleRule">
+		select ID,CREATE_TIME,UPDATE_TIME,CODE,MARK,RULE_LEVEL,RULE_LEVEL_PARENT,TYPE
+ 		from  CONSOLE_RULE where 1=1
+ 		 
+ 		<if test="mark !=null and mark !=''" >
+			and MARK like '%${mark}%'
+		</if>
+		
+		<if test="type !=null and type !='' and type !='-1'" >
+			and TYPE=#{type}
+		</if>
+		
+ 		order by CREATE_TIME desc
+	</select>
+	
+	<insert id="insertConsoleRule" parameterType="com.chinagpay.boss.model.ConsoleRule" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO CONSOLE_RULE(ID,CREATE_TIME,CODE,MARK,RULE_LEVEL,RULE_LEVEL_PARENT,TYPE) 
+		values (#{id},#{createTime},#{code},#{mark},#{ruleLevel},#{ruleLevelParent},#{type})
+
+	</insert>
+	
+	<delete id="deleteByPrimaryKey" parameterType="com.chinagpay.boss.model.ConsoleRule" >
+     delete from CONSOLE_RULE
+     where ID = #{id}
+    </delete>
+  
+  
+</mapper>

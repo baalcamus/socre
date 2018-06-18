@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinagpay.boss.dao.zboss.BusinessReportMapper">
+    <select id="selectYearReportOfBusiness" parameterType="com.chinagpay.boss.model.BusinessReport" resultType="com.chinagpay.boss.model.BusinessReport">
+		select m.sum_mer_count end_sum_mer_count ,n.begin_add_mer_count,n.begin_sum_mer_count,n.begin_total_trade ,n.pay_another_amount,
+		        n.begin_total_amount,n.end_add_mer_count,n.end_total_amount,n.end_total_trade ,n.begin_date,n.end_date
+		from console_business_report m ,
+		    ( select add_mer_count begin_add_mer_count,sum_mer_count begin_sum_mer_count ,total_trade begin_total_trade,
+		              total_amount begin_total_amount ,b.*
+		              from console_business_report a ,
+                          (select sum(add_mer_count) end_add_mer_count,sum(total_trade) end_total_trade,
+                                  sum(total_amount) end_total_amount,min(statistics_date) begin_date,
+                                  max(statistics_date) end_date,sum(total_amount2) pay_another_amount
+		                  from console_business_report
+		                  where  <![CDATA[  #{beginDate,jdbcType=TIMESTAMP} <= statistics_date
+			              and #{endDate,jdbcType=TIMESTAMP}  >=  statistics_date ]]>
+			              ) b
+			          where  a.statistics_date= b.begin_date
+			) n
+		where m.statistics_date = n.end_date
+	</select>
+
+</mapper>

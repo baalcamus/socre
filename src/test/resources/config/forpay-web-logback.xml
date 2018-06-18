@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- 定义日志路劲 -->
+	<!-- <property name="log.path" value="/home/items/logs/" /> -->
+	<!--项目名(shanxin) -->
+	<!-- <property name="project.name" value="trade" /> -->
+	<!-- <timestamp key="byDay" datePattern="yyyyMMdd"/> -->
+
+	<!-- 输出位置定义 -->
+	<!-- 控制台 -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<!-- <param name="Threshold" value="error"></param> -->
+		<param name="Threshold" value="debug"></param>
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d - %c -%-4r [%t] %-5p %x - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- 每天一个info文件 -->
+	<appender name="DAY_INFO_AP" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="INFO"></param>
+		<param name="ImmediateFlush" value="true"></param>
+		<!-- 测试环境 
+		<param name="File" value="/home/ci1/logs/op-boss/info/all_info.log"></param>
+		-->
+		<!-- 生产环境  -->
+		<param name="File" value="/home/items/logs/op-boss/all_info.log"></param>
+		
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param>
+		</layout>
+	</appender>
+	<!-- 每天一个ERROR级别的日志 -->
+	<appender name="DAY_ERROR_AP" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="EEROR"></param>
+		<param name="ImmediateFlush" value="true"></param>
+		<!-- 测试环境 
+		<param name="File" value="/home/ci1/logs/op-boss/error/all_error.log"></param>
+		-->
+		<!-- 生产环境  -->
+		<param name="File" value="/home/items/logs/op-boss/all_error.log"></param>
+		
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param>
+		</layout>
+	</appender>
+
+	<!-- 每天一个DEBUG文件 -->
+	<appender name="DAY_DEBUG_AP" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="DEBUG"></param>
+		<param name="ImmediateFlush" value="true"></param>
+		<param name="File" value="/home/ci1/logs/op-boss/debug/all_debug.log"></param>
+		<!-- 测试环境 
+		<param name="File" value="/home/ci1/logs/op-boss/debug/all_debug.log"></param>
+		-->
+		<!-- 生产环境  -->
+		<param name="File" value="/home/items/logs/op-boss/all_debug.log"></param>
+		
+		
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param>
+		</layout>
+	</appender>
+
+
+
+	<!-- Root logger 所有logger的基类，没有定义的logger将会使用root logger -->
+	<root>
+		<!-- <priority value="DEBUG" />-->
+		<appender-ref ref="CONSOLE" />
+		<!-- <appender-ref ref="DAY_INFO_AP" /> -->
+		<!-- <appender-ref ref="DAY_ERROR_AP" /> -->
+		<!--<appender-ref ref="DAY_INFO_AP" />-->
+	</root>
+
+
+</log4j:configuration>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinagpay.boss.dao.zboss.ConsoleUserRuleMapper">
+  <resultMap id="consoleUserRule" type="com.chinagpay.boss.model.ConsoleUserRule">
+      	<result column="ID" property="id" />
+		<result column="CREATE_TIME" property="createTime" />
+		<result column="UPDATE_TIME" property="updateTime" />
+		<result column="USER_ID" property="userId" />
+		<result column="RULE_ID" property="ruleId" />
+    
+  </resultMap>
+  
+  <select id="selectConsoleUserRule" parameterType="com.chinagpay.boss.model.ConsoleUserRule" resultMap="consoleUserRule">
+		select ID,CREATE_TIME,UPDATE_TIME,USER_ID,RULE_ID
+ 		from  CONSOLE_USER_RULE where 1=1
+ 		 
+ 		<if test="userId !=null and userId !=''" >
+			and USER_ID=#{userId}
+		</if>
+		
+ 		order by CREATE_TIME desc
+	</select>
+	
+	<insert id="insertConsoleUserRule" parameterType="com.chinagpay.boss.model.ConsoleUserRule">
+		INSERT INTO CONSOLE_USER_RULE(ID,CREATE_TIME,USER_ID,RULE_ID) 
+		values (#{id},#{createTime},#{userId},#{ruleId})
+	</insert>
+	
+	<delete id="deleteByUserIdAndRuleId" parameterType="com.chinagpay.boss.model.ConsoleUserRule" >
+     delete from CONSOLE_USER_RULE
+      where USER_ID = #{userId} and RULE_ID = #{ruleId}
+    </delete>
+	
+  
+</mapper>
