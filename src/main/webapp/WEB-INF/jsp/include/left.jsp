@@ -39,6 +39,13 @@
                                                 class="fa fa-search"></i><span class="submenu-title">用户查询</span></a>
                                         </li>
                                     </c:if>
+                                   <%--根据mainController 的demoManageLeft 来判断权限显示  并且调用相关的controller--%>
+                                    <c:if test="${sessionScope.demoManageLeft}">
+                                        <li><a name="thirdLevel" class="menu_js"
+                                               href="<%=request.getContextPath()%>/demoManage/toDemoSearchController.do"><i
+                                                class="fa fa-search"></i><span class="submenu-title">demo查询</span></a>
+                                        </li>
+                                    </c:if>
                                 </ul>
                             </li>
                         </c:if>

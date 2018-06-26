@@ -37,6 +37,14 @@ public class MainController {
 			markList.add(ruleList.get(i).getCode());
 		}
 		logger.info("当前用户权限list:\n" + markList);
+
+		//DEMO  获取rule 中配置的模块地址， 设置left需要的判断
+		boolean  demoManageLeft = false;
+		if (markList.contains("demoManage/toDemoSearch")) {
+			demoManageLeft = true;
+		}
+		session.setAttribute("demoManageLeft", demoManageLeft); //left中会根据 demoManageLeft判读是否显现相关页签
+
 		// ----------系统管理-------------------
 		boolean systemManage = false; // 系统管理
 		if (markList.contains("systemManage")) {
