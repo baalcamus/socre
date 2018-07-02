@@ -22,8 +22,8 @@
 					<i class="fa fa-volume-down"></i><strong>消息通知</strong><span>
 						<script>
 							var marqueeContent = new Array(); //滚动主题 
-							marqueeContent[0] = '<a href="javascript:void(0);">北京爱农驿站科技服务有限公司新控台全新上线！</a>';
-							marqueeContent[1] = '<a href="javascript:void(0);">北京爱农驿站科技服务有限公司新控台全新上线！</a>';
+							marqueeContent[0] = '<a href="javascript:void(0);">黑龙江省科学院条财项目评审系统全新上线！</a>';
+							marqueeContent[1] = '<a href="javascript:void(0);">黑龙江省科学院条财项目评审系统全新上线！</a>';
 							var marqueeInterval = new Array(); //定义一些常用而且要经常用到的变量 
 							var marqueeId = 0;
 							var marqueeDelay = 4000;
