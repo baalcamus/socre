@@ -21,5 +21,5 @@ public interface EvaluationService {
     /**
      * 根据当前登录人，查找他涉及的待评审列表
      */
-    public List<Evaluation> findList(String id, PageInfo<Evaluation> page,Evaluation evaluation);
+    public List<Evaluation> findList(PageInfo<Evaluation> page,Evaluation evaluation);
 }

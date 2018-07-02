@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chinagpay.boss.dao.zboss.EvaluationMapper" >
+  <resultMap id="BaseResultMap" type="com.chinagpay.boss.model.score.Evaluation" >
+
+    <result column="id" property="id"/>
+    <result column="PRO_NAME" property="proName" jdbcType="VARCHAR" />
+    <result column="PRO_REPORTOR" property="proReportor" jdbcType="VARCHAR" />
+    <result column="REV_ID" property="revId" jdbcType="VARCHAR" />
+    <result column="REV_NAME" property="revName" jdbcType="VARCHAR" />
+    <result column="REVIEW_TYPE" property="reviewType" jdbcType="VARCHAR" />
+    <result column="SCORE" property="score" jdbcType="VARCHAR" />
+    <result column="COMMENT" property="comment" jdbcType="VARCHAR" />
+    <result column="REVIEW_STATUS" property="reviewStatus" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+  </resultMap>
+
+  	
+  	<select id="findList" parameterType="com.chinagpay.boss.model.score.Evaluation" resultMap="BaseResultMap">
+		select * from EVALUATION
+		where 1=1
+		<if test="proName !=null and  proName !=''">
+			and PRO_NAME = #{proName}
+		</if>
+
+			and USER_ID = #{userId}
+	</select>
+
+</mapper>

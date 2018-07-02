@@ -45,6 +45,15 @@ public class MainController {
 		}
 		session.setAttribute("demoManageLeft", demoManageLeft); //left中会根据 demoManageLeft判读是否显现相关页签
 
+		//审核菜单
+		boolean  evaManageLeft = false;
+		if (markList.contains("evaluation")) {
+			evaManageLeft = true;
+		}
+		session.setAttribute("evaManageLeft", evaManageLeft); //
+
+
+
 		// ----------系统管理-------------------
 		boolean systemManage = false; // 系统管理
 		if (markList.contains("systemManage")) {
