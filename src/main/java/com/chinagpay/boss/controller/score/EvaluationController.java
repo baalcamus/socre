@@ -39,7 +39,7 @@ public class EvaluationController {
         return "/evaluation/evaSearch";
     }
 
-    @RequestMapping(value = "/static/evaluation/toEvaluation")
+    @RequestMapping(value = "/static/evaluation/reviewProject")
     public String reviewProject(HttpSession session, Model model) {
         //根据待审核ID 查询所有信息（项目信息， 展示图片 ）
 
@@ -51,7 +51,7 @@ public class EvaluationController {
     }
 
 
-    @RequestMapping(value = "/static/evaluation/toEvaluation")
+    @RequestMapping(value = "/static/evaluation/updateEvaluation")
     public String updateEvaluation(HttpSession session, Model model,Evaluation evaluation) {
         //保存审核信息
 
