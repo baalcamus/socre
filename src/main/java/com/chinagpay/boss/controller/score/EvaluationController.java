@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -40,21 +41,28 @@ public class EvaluationController {
     }
 
     @RequestMapping(value = "/static/evaluation/reviewProject")
-    public String reviewProject(HttpSession session, Model model) {
+    public String reviewProject(HttpSession session, Model model,HttpServletRequest request) {
+        String id = request.getParameter("id"); //审核表ID
         //根据待审核ID 查询所有信息（项目信息， 展示图片 ）
 
         //查询项目信息
 
-        //查
-
         return "/evaluation/reviewProject";
     }
-
 
     @RequestMapping(value = "/static/evaluation/updateEvaluation")
     public String updateEvaluation(HttpSession session, Model model,Evaluation evaluation) {
         //保存审核信息
 
+        return "success";
+    }
+
+    //查看该project 是否已全部打分， 如果全部打分 计算分数，修改pro的状态为已评审，并保存分数
+    @RequestMapping(value = "/static/evaluation/calculaScore")
+    public String calculaScore(HttpSession session, Model model,Evaluation evaluation) {
+        //保存审核信息
+
+        //查看所有该项目的 审核信息， 是否已全部审核，
         return "success";
     }
 }

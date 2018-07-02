@@ -5,29 +5,13 @@
 <head>
 <title>用户查询</title>
 </head>
-<script type="text/javascript">	
-function modifi(loginName,status) {
-	$.post( "<%=request.getContextPath()%>/systemManage/toModifiUser.do",{
-		loginName:loginName,
-		status:status,
-	},
-	function (data){
-		if(data=="ok"){
-			alert("修改成功");
-			window.location.reload();
-		}else{
-			alert("修改失败");
-			window.location.reload();
-		}
-	}
-	
-	);
-}
-	function formSubmit(){
- 		$("#queryForm").submit(); 
- 	}
-</script>
+<script type="text/javascript">
 
+    function reviewProject(id){
+        window.location.href ="<%=request.getContextPath()%>/static/evaluation/reviewProject?id="+id;
+    }
+
+</script>
 <body class=" ">
 <!-- 头部 -->
 <jsp:include page="../include/top.jsp" />
@@ -114,15 +98,20 @@ function modifi(loginName,status) {
                 <tbody>
                  <c:forEach items="${page.list}" var="user" varStatus="status">
                   <tr>
-                      <td></td>
+                      <td>
+                          <c:if test="${user.reviewStatus == 'REVIEW_INIT'}"><a  href="javascript:reviewProject('${user.id}')">开启</a></c:if>
+                      </td>
                       <td>${user.proName}</td>
-                  	 <td>${user.proReportor}</td>
-
+                  	  <td>${user.proReportor}</td>
                       <td>
                           <c:if test="${user.reviewStatus== 'REVIEW_INIT'}"> 待评审</c:if>
+                          <c:if test="${user.reviewStatus== 'REVIEW_SUCESS'}"> 已评审</c:if>
                       </td>
-                      <td>${user.reviewType}</td>
-                  	 <td>${user.score}</td>
+                      <td>
+                          <c:if test="${user.reviewType== 'TECHNOLOGY'}"> 技术类</c:if>
+                          <c:if test="${user.reviewType== 'FINANCE'}"> 财务类</c:if>
+                      </td>
+                  	  <td>${user.score}</td>
                   </tr>
                 </c:forEach>
                 </tbody>

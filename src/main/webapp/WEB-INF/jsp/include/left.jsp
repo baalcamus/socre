@@ -71,32 +71,6 @@
                         </li>
                     </c:if>
 
-
-
-                        <c:if test="${sessionScope.moduleAddManage}">
-                            <li><a href="javascript:void(0)"><i class="fa fa-sitemap">
-                                <div class="icon-bg bg-pink"></div>
-                            </i><span class="submenu-title">模块管理</span><span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <c:if test="${sessionScope.toModuleAddManage}">
-                                        <li><a name="thirdLevel" class="menu_js"
-                                               href="<%=request.getContextPath()%>/console/toModuleAdd.do"> <i
-                                                class="fa fa-file-o"></i><span class="submenu-title">模块创建</span></a>
-                                        </li>
-                                    </c:if>
-                                    <c:if test="${sessionScope.toModuleList}">
-                                        <li><a name="thirdLevel" class="menu_js"
-                                               href="<%=request.getContextPath()%>/console/toModuleList.do"><i
-                                                class="fa fa-search"></i><span class="submenu-title">模块查询</span></a>
-                                        </li>
-                                    </c:if>
-                                </ul>
-                            </li>
-                        </c:if>
-
-
-
-
                         <%--<c:if test="${sessionScope.announceAddManage}">--%>
                             <%--<li><a href="javascript:void(0)"><i class="fa fa-bullhorn fa-fw">--%>
                                 <%--<div class="icon-bg bg-pink"></div>--%>
