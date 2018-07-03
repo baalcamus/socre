@@ -73,7 +73,7 @@
 					<!--这是交易量模块开始-->
 					<div class="index_user">
 						<div class="left">
-							<h1>北京爱农驿站科技服务有限公司</h1>
+							<h1>黑龙江省科学院条财评审系统</h1>
 						</div>
 
 					</div>
@@ -87,7 +87,7 @@
 
 											<div class="pro_icon df"></div>
 											<div class="pro-txt">
-												<h1>代付</h1>
+												<h1>评审</h1>
 												<br>
 											</div>
 										</div>
@@ -98,7 +98,7 @@
 
 											<div class="pro_icon ds"></div>
 											<div class="pro-txt">
-												<h1>代收</h1>
+												<h1>评审</h1>
 												<br>
 											</div>
 										</div>
@@ -109,7 +109,7 @@
 
 											<div class="pro_icon risk"></div>
 											<div class="pro-txt">
-												<h1>鉴权</h1>
+												<h1>评审</h1>
 											</div>
 
 										</div>
@@ -120,7 +120,7 @@
 
 											<div class="pro_icon wy"></div>
 											<div class="pro-txt">
-												<h1>网银</h1>
+												<h1>评审</h1>
 												<br>
 											</div>
 
@@ -132,7 +132,7 @@
 
 											<div class="pro_icon kj"></div>
 											<div class="pro-txt">
-												<h1>快捷</h1>
+												<h1>评审</h1>
 												<br>
 											</div>
 										</div>
@@ -143,7 +143,7 @@
 
 											<div class="pro_icon kj02"></div>
 											<div class="pro-txt">
-												<h1>跨境</h1>
+												<h1>评审</h1>
 												<br>
 											</div>
 										</div>
@@ -164,7 +164,7 @@
 								</div>
 								<div class="panel-body">
 									<ul>
-										<li><a href="#">北京爱农驿站科技服务有限公司新控台全新上线！</a></li>
+										<li><a href="#">黑龙江省科学院条财项目评审系统全新上线！</a></li>
 
 									</ul>
 

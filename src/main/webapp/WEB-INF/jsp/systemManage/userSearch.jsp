@@ -86,20 +86,20 @@ function modifi(loginName,status) {
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                          <table width="100%" class="product_detail_list">
                                       <tr>
-                                      <td width="110" class="text-right">所属部门</td>
+                                      <td width="110" class="text-right">所属用户组</td>
                             <td>
                               <select class="form-control" tabindex="10" name="consoleDepId" id="consoleDepId">
                                     <option <c:if test="${user.consoleDepId=='' }">selected="selected"</c:if> value=""> 全部 </option>
-                                    <option <c:if test="${user.consoleDepId=='2' }">selected="selected"</c:if>value="2"> 运营部 </option>
-                                    <option <c:if test="${user.consoleDepId=='3' }">selected="selected"</c:if>value="3"> 财务部 </option>
-                                    <option <c:if test="${user.consoleDepId=='4' }">selected="selected"</c:if>value="4"> 技术部 </option>
-                                    <option <c:if test="${user.consoleDepId=='5' }">selected="selected"</c:if>value="5"> 市场部 </option>
-                                    <option <c:if test="${user.consoleDepId=='6' }">selected="selected"</c:if>value="6"> 产品部 </option>
-                                    <option <c:if test="${user.consoleDepId=='7' }">selected="selected"</c:if>value="7"> 风控部 </option>
-                           		    <option <c:if test="${user.consoleDepId=='8' }">selected="selected"</c:if>value="8"> 清算部 </option>
-                            	    <option <c:if test="${user.consoleDepId=='9' }">selected="selected"</c:if>value="9"> 银行合作部 </option>
-                                    <option <c:if test="${user.consoleDepId=='10' }">selected="selected"</c:if>value="10"> 销售部 </option> 
-                                	<option <c:if test="${user.consoleDepId=='11' }">selected="selected"</c:if>value="1"> 法务部 </option>
+                                    <option <c:if test="${user.consoleDepId=='2' }">selected="selected"</c:if>value="2"> 申报单位 </option>
+                                    <option <c:if test="${user.consoleDepId=='3' }">selected="selected"</c:if>value="3"> 专家 </option>
+                                    <option <c:if test="${user.consoleDepId=='4' }">selected="selected"</c:if>value="4"> 条财处 </option>
+                                    <option <c:if test="${user.consoleDepId=='5' }">selected="selected"</c:if>value="5"> 待定义 </option>
+                                    <option <c:if test="${user.consoleDepId=='6' }">selected="selected"</c:if>value="6"> 待定义 </option>
+                                    <option <c:if test="${user.consoleDepId=='7' }">selected="selected"</c:if>value="7"> 待定义 </option>
+                           		    <option <c:if test="${user.consoleDepId=='8' }">selected="selected"</c:if>value="8"> 待定义 </option>
+                            	    <option <c:if test="${user.consoleDepId=='9' }">selected="selected"</c:if>value="9"> 待定义 </option>
+                                    <option <c:if test="${user.consoleDepId=='10' }">selected="selected"</c:if>value="10"> 待定义 </option>
+                                	<option <c:if test="${user.consoleDepId=='11' }">selected="selected"</c:if>value="1"> 待定义 </option>
                               </select>
                            </td>
                            </tr>
@@ -138,7 +138,7 @@ function modifi(loginName,status) {
                   <th><span>操作</span></th>
                     <th><span>用户账号</span></th>
                     <th><span>用户昵称</span></th>
-                    <th><span>所属部门</span></th>
+                    <th><span>所属用户组</span></th>
                     <th><span>创建人</span></th>
                     <th><span>创建时间</span></th>
                      <th><span>更新人</span></th>
@@ -156,16 +156,16 @@ function modifi(loginName,status) {
                   	 <td>${user.loginName}</td>
                   	 <td>${user.realName}</td>
                   	 <td>
-                  	 	<c:if test="${user.consoleDepId==2}">运营部</c:if>
-                 	 	<c:if test="${user.consoleDepId==3}">财务部</c:if>	
-                 	 	<c:if test="${user.consoleDepId==4}">技术部</c:if>
-                 	 	<c:if test="${user.consoleDepId==5}">市场部</c:if>	
-                 	 	<c:if test="${user.consoleDepId==6}">产品部</c:if>
-                 	 	<c:if test="${user.consoleDepId==7}">风控部</c:if>
-                 	 	<c:if test="${user.consoleDepId==8}">清算部</c:if>
-                 	 	<c:if test="${user.consoleDepId==9}">银行合作部</c:if>
-                 	 	<c:if test="${user.consoleDepId==10}">销售部</c:if>
-                 	 	<c:if test="${user.consoleDepId==1}">法务部</c:if>
+                  	 	<c:if test="${user.consoleDepId==2}">申报单位</c:if>
+                 	 	<c:if test="${user.consoleDepId==3}">专家</c:if>
+                 	 	<c:if test="${user.consoleDepId==4}">条财处</c:if>
+                 	 	<c:if test="${user.consoleDepId==5}">待定义</c:if>
+                 	 	<c:if test="${user.consoleDepId==6}">待定义</c:if>
+                 	 	<c:if test="${user.consoleDepId==7}">待定义</c:if>
+                 	 	<c:if test="${user.consoleDepId==8}">待定义</c:if>
+                 	 	<c:if test="${user.consoleDepId==9}">待定义</c:if>
+                 	 	<c:if test="${user.consoleDepId==10}">待定义</c:if>
+                 	 	<c:if test="${user.consoleDepId==1}">待定义</c:if>
                   	 </td>
                   	 <td>${user.createLoginName}</td>
                   	 <td><fmt:formatDate value="${user.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>

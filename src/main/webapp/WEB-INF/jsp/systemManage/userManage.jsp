@@ -203,7 +203,7 @@
                                         <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
                                             <table width="100%" class="product_detail_list">
                                                 <tr>
-                                                    <td width="120" class="text-right">所属部门<span>*</span></td>
+                                                    <td width="120" class="text-right">所属用户组<span>*</span></td>
                                                     <td width="200">
                                                         <select class="form-control" tabindex="10" name="consoleDepId"
                                                                 id="consoleDepId">
